@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Town Bus Hyderabad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+    <section class="background">
+        <div class="topImage">
+            <img src="images/background/background_Img_head.png" alt="Top_Image">
+        </div>
+
+        <div class="bottomImage hide" id="bottomImage">
+            <img src="images/background/background_Img_tail.png" alt="Bottom_Image">
+        </div>
+    </section>
+
+    <!-- HOME PAGE -->
+    <section class="contentPage" id="homePage">
+        <div class="content">
+
+            <div class="topLeftIcon centerCol br10px boxShadow" onclick="openMenu()">
+                <img src="images/svg/menu.svg" alt="MenuIcon">
+            </div>
+
+            <div class="searchBarsContainer br10px boxShadow">
+                <div class="inputHolder centerRow spBetween" id="searchBar1">
+                    <img src="images/svg/search.svg" alt="SearchIcon">
+                    <input type="text" id="input1" placeholder="Search Route No.." oninput="showSuggessions(this)"
+                        onblur="hideDelay('suggessionsList',100)">
+                    <img src="images/svg/cancel.svg" alt="ClearIcon" onclick="clearInputsIcon(this)" id="input1Clear"
+                        class="invisible">
+                </div>
+                <hr class="hide" id="SearchBarsLine">
+                <div class="inputHolder centerRow spBetween hide" id="searchBar2">
+                    <img src="images/svg/search.svg" alt="SearchIcon">
+                    <input type="text" id="input2" placeholder="Travelling to..." oninput="showSuggessions(this)"
+                        onblur="hideDelay('suggessionsList',100)">
+                    <img src="images/svg/cancel.svg" alt="ClearIcon" onclick="clearInputsIcon(this)" id="input2Clear"
+                        class="invisible">
+                </div>
+
+            </div>
+
+            <div class="suggessionsList hide" id="suggessionsList">
+                <li>17HR</li>
+                <li>17HC</li>
+                <li>17HN</li>
+                <li>17H/219</li>
+                <li>17DH</li>
+            </div>
+
+            <div class="buttonContainer centerCol br10px boxShadow hide" id="SearchButton">
+                <button class="br10px" onclick="search()">Search</button>
+            </div>
+
+            <div class="homeOutputAttractions" id="homeOutputAttractions">
+
+                <div class="attractionItem boxShadow br10px blue" id="popularRoutes">
+
+                    <div class="headline centerRow spBetween">
+                        <div class="image centerRow">
+                            <img src="images/svg/star.svg" alt="StarIcon">
+                        </div>
+                        <h4>Popular Routes</h4>
+                    </div>
+
+                    <div class="attactionContent centerCol">
+                        <ul class="centerRow spBetween child5" id="listLEN3">
+                            <li onclick="viewRouteData(this)">2C</li>
+                            <li onclick="viewRouteData(this)">17HC</li>
+                            <li onclick="viewRouteData(this)">19M</li>
+                            <li onclick="viewRouteData(this)">20P</li>
+                            <li onclick="viewRouteData(this)">40</li>
+                        </ul>
+
+                        <ul class="centerRow spBetween child4" id="listLEN6">
+                            <li onclick="viewRouteData(this)">224G</li>
+                            <li onclick="viewRouteData(this)">219</li>
+                            <li onclick="viewRouteData(this)">290U</li>
+                            <li onclick="viewRouteData(this)">300</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="attractionItem boxShadow br10px green" id="newRestoreRoutes">
+
+                    <div class="headline centerRow spBetween">
+                        <div class="image centerRow">
+                            <img src="images/svg/star.svg" alt="StarIcon">
+                        </div>
+                        <h4>New/Restored Routes</h4>
+                    </div>
+
+                    <div class="attactionContent centerCol">
+                        <ul class="centerRow spBetween child4">
+                            <li onclick="viewRouteData(this)">17RH</li>
+                            <li onclick="viewRouteData(this)">6NW</li>
+                            <li onclick="viewRouteData(this)">90DJ</li>
+                            <li onclick="viewRouteData(this)">49MG</li>
+                        </ul>
+
+                        <ul class="centerRow spBetween child3">
+                            <li onclick="viewRouteData(this)">136H</li>
+                            <li onclick="viewRouteData(this)">496</li>
+                            <li onclick="viewRouteData(this)">301</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="attractionItem boxShadow br10px blue hide" id="popularBusStops">
+
+                    <div class="headline centerRow spBetween">
+                        <div class="image centerRow">
+                            <img src="images/svg/star.svg" alt="StarIcon">
+                        </div>
+                        <h4>Popular Bus Stops</h4>
+                    </div>
+
+                    <div class="attactionContent centerCol">
+                        <ul class="centerRow spBetween child3">
+                            <li onclick="viewBusStopData(this)">Uppal</li>
+                            <li onclick="viewBusStopData(this)">Tarnaka</li>
+                            <li onclick="viewBusStopData(this)">Koti</li>
+                        </ul>
+
+                        <ul class="centerRow spBetween child2">
+                            <li onclick="viewBusStopData(this)">Secunderabad</li>
+                            <li onclick="viewBusStopData(this)">Ameerpet</li>
+                        </ul>
+
+                        <ul class="centerRow spBetween child1">
+                            <li onclick="viewBusStopData(this)">Central Bus Station (CBS)</li>
+                        </ul>
+                        <ul class="centerRow spBetween child1">
+                            <li onclick="viewBusStopData(this)">Jubliee Bus Station (JBS)</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="navBar boxShadow br10px centerRow spAround" id="navBar">
+
+                <li class="centerCol active" onclick="navigation(this)" value="1">
+                    <div class="navIcon">
+                        <svg fill="#000000" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M12 0C5.4375 0 3 2.167969 3 8L3 41C3 42.359375 3.398438 43.339844 4 44.0625L4 47C4 48.652344 5.347656 50 7 50L11 50C12.652344 50 14 48.652344 14 47L14 46L36 46L36 47C36 48.652344 37.347656 50 39 50L43 50C44.652344 50 46 48.652344 46 47L46 44.0625C46.601563 43.339844 47 42.359375 47 41L47 9C47 4.644531 46.460938 0 40 0 Z M 15 4L36 4C36.554688 4 37 4.449219 37 5L37 7C37 7.550781 36.554688 8 36 8L15 8C14.449219 8 14 7.550781 14 7L14 5C14 4.449219 14.449219 4 15 4 Z M 11 11L39 11C41 11 42 12 42 14L42 26C42 28 40.046875 28.9375 39 28.9375L11 29C9 29 8 28 8 26L8 14C8 12 9 11 11 11 Z M 2 12C0.898438 12 0 12.898438 0 14L0 22C0 23.101563 0.898438 24 2 24 Z M 48 12L48 24C49.105469 24 50 23.101563 50 22L50 14C50 12.898438 49.105469 12 48 12 Z M 11.5 34C13.433594 34 15 35.566406 15 37.5C15 39.433594 13.433594 41 11.5 41C9.566406 41 8 39.433594 8 37.5C8 35.566406 9.566406 34 11.5 34 Z M 38.5 34C40.433594 34 42 35.566406 42 37.5C42 39.433594 40.433594 41 38.5 41C36.566406 41 35 39.433594 35 37.5C35 35.566406 36.566406 34 38.5 34Z">
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="navText">
+                        <span>Routes</span>
+                    </div>
+                </li>
+
+                <li class="centerCol" onclick="navigation(this)" value="2">
+                    <div class="navIcon">
+                        <svg fill="#000000" height="200px" width="200px" version="1.1" id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 512 512" xml:space="preserve">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <g transform="translate(0 -1)">
+                                    <g>
+                                        <g>
+                                            <path
+                                                d="M435.2,30.867H76.8c-42.351,0-76.8,34.449-76.8,76.8v8.533h34.133v341.333c0,14.114,11.486,25.6,25.6,25.6 s25.6-11.486,25.6-25.6V116.2h162.133v358.4c0,4.719,3.814,8.533,8.533,8.533s8.533-3.814,8.533-8.533V116.2h162.133v341.333 c0,14.114,11.486,25.6,25.6,25.6c14.114,0,25.6-11.486,25.6-25.6V116.2H512v-8.533C512,65.316,477.551,30.867,435.2,30.867z">
+                                            </path>
+                                            <path
+                                                d="M213.333,356.703v-53.666c0-8.917-7.253-16.171-16.171-16.171h-52.992c-8.917,0-16.171,7.253-16.171,16.171v53.666 c-9.907,3.533-17.067,12.919-17.067,24.03c0,11.11,7.159,20.497,17.067,24.03V449c0,4.719,3.814,8.533,8.533,8.533 s8.533-3.814,8.533-8.533v-42.667h51.2V449c0,4.719,3.814,8.533,8.533,8.533s8.533-3.814,8.533-8.533v-44.237 c9.907-3.533,17.067-12.919,17.067-24.03C230.4,369.623,223.241,360.236,213.333,356.703z M204.8,389.267h-68.267 c-4.71,0-8.533-3.823-8.533-8.533c0-4.71,3.823-8.533,8.533-8.533H204.8c4.71,0,8.533,3.823,8.533,8.533 C213.333,385.444,209.51,389.267,204.8,389.267z">
+                                            </path>
+                                            <path
+                                                d="M384,356.703v-53.666c0-8.917-7.253-16.171-16.171-16.171h-52.992c-8.917,0-16.171,7.253-16.171,16.171v53.666 c-9.907,3.533-17.067,12.919-17.067,24.03c0,11.11,7.159,20.497,17.067,24.03V449c0,4.719,3.814,8.533,8.533,8.533 s8.533-3.814,8.533-8.533v-42.667h51.2V449c0,4.719,3.814,8.533,8.533,8.533S384,453.719,384,449v-44.237 c9.907-3.533,17.067-12.919,17.067-24.03C401.067,369.623,393.907,360.236,384,356.703z M375.467,389.267H307.2 c-4.71,0-8.533-3.823-8.533-8.533c0-4.71,3.823-8.533,8.533-8.533h68.267c4.71,0,8.533,3.823,8.533,8.533 C384,385.444,380.177,389.267,375.467,389.267z">
+                                            </path>
+                                            <path
+                                                d="M213.333,227.133c4.719,0,8.533-3.814,8.533-8.533v-68.267c0-4.719-3.814-8.533-8.533-8.533h-93.867 c-4.719,0-8.533,3.814-8.533,8.533V218.6c0,4.719,3.814,8.533,8.533,8.533H213.333z">
+                                            </path>
+                                            <path
+                                                d="M392.533,141.8h-93.867c-4.719,0-8.533,3.814-8.533,8.533V218.6c0,4.719,3.814,8.533,8.533,8.533h93.867 c4.719,0,8.533-3.814,8.533-8.533v-68.267C401.067,145.614,397.252,141.8,392.533,141.8z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="navText">
+                        <span>Bus Stops</span>
+                    </div>
+                </li>
+
+                <li class="centerCol" onclick="navigation(this)" value="3">
+                    <div class="navIcon">
+                        <svg viewBox="0 0 24 24" class="icon flat-line">
+                            <polyline points="7 5 4 8 7 11" class="arrow-part" />
+                            <polyline points="17 19 20 16 17 13" class="arrow-part" />
+                            <path d="M4,8H20m0,8H4" class="arrow-part" />
+                        </svg>
+                    </div>
+                    <div class="navText">
+                        <span>From - To</span>
+                    </div>
+                </li>
+
+                <li class="centerCol" onclick="navigation(this)" value="4">
+                    <div class="navIcon">
+                        <svg viewBox="0 0 64 64" class="icon location-icon">
+                            <path
+                                d="M32,0C18.746,0,8,10.746,8,24c0,5.219,1.711,10.008,4.555,13.93c0.051,0.094,0.059,0.199,0.117,0.289l16,24 C29.414,63.332,30.664,64,32,64s2.586-0.668,3.328-1.781l16-24c0.059-0.09,0.066-0.195,0.117-0.289C54.289,34.008,56,29.219,56,24 C56,10.746,45.254,0,32,0z M32,32c-4.418,0-8-3.582-8-8s3.582-8,8-8s8,3.582,8,8S36.418,32,32,32z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="navText">
+                        <span>Fares</span>
+                    </div>
+                </li>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ROUTE COURSE OUTPUT -->
+    <section class="contentPage close" id="routeCourseOutput">
+        <div class="content">
+
+            <div class="topLeftIcon centerCol br10px boxShadow" onclick="goBack()">
+                <img src="images/svg/back.svg" alt="BackIcon">
+            </div>
+
+            <div class="searchBarsContainer br10px boxShadow">
+                <div class="inputHolder centerRow spBetween">
+                    <img src="images/svg/search.svg" alt="SearchIcon">
+                    <input type="text" id="routecourseInput" placeholder="Search Stops in 17H...">
+                    <img src="images/svg/cancel.svg" alt="ClearIcon">
+                </div>
+            </div>
+
+            <div class="outputContent" id="routeCourseOutputContent">
+
+                <div class="outputDescription br10px">
+                    <p id="routeDescription">
+                        17H operates between Secunderabad and ECIL X Roads, covering 13.5 km with multiple stops along
+                        the route. Sometimes this route may extend upto Kushaiguda. Always check the
+                        destination
+                        board before boarding.
+                    </p>
+                </div>
+
+                <div class="routeCourseContainer br10px" id="routeCourseContainer">
+
+                    <!-- <div class="routeCourseItem centerRow spBetween first">
+
+                        <div class="graphic centerCol">
+                            <span class="line topLine"></span>
+                            <span class="circle centerCol"></span>
+                            <span class="line BottomLine"></span>
+                        </div>
+
+                        <div class="text">
+                            <p class="RC_stopName">Secunderabad</p>
+                            <p class="RC_subStopName">Blue Sea Hotel Stop</p>
+                        </div>
+
+                    </div>
+
+                    <div class="routeCourseItem centerRow spBetween">
+
+                        <div class="graphic centerCol">
+                            <span class="line topLine"></span>
+                            <span class="circle centerCol"></span>
+                            <span class="line BottomLine"></span>
+                        </div>
+
+                        <div class="text">
+                            <p class="RC_stopName">Mettuguda</p>
+                            <p class="RC_subStopName"></p>
+                        </div>
+
+                    </div>
+
+                    <div class="routeCourseItem centerRow spBetween">
+
+                        <div class="graphic centerCol">
+                            <span class="line topLine"></span>
+                            <span class="circle centerCol"></span>
+                            <span class="line BottomLine"></span>
+                        </div>
+
+                        <div class="text">
+                            <p class="RC_stopName">Tarnaka</p>
+                            <p class="RC_subStopName">Opp. International Students Hostel</p>
+                        </div>
+
+                    </div>
+
+                    <div class="routeCourseItem centerRow spBetween">
+
+                        <div class="graphic centerCol">
+                            <span class="line topLine"></span>
+                            <span class="circle centerCol"></span>
+                            <span class="line BottomLine"></span>
+                        </div>
+
+                        <div class="text">
+                            <p class="RC_stopName">Lalapet</p>
+                            <p class="RC_subStopName">Ram Theater</p>
+                        </div>
+
+                    </div>
+
+                    <div class="routeCourseItem centerRow spBetween">
+
+                        <div class="graphic centerCol">
+                            <span class="line topLine"></span>
+                            <span class="circle centerCol"></span>
+                            <span class="line BottomLine"></span>
+                        </div>
+
+                        <div class="text">
+                            <p class="RC_stopName">ZTS X Roads</p>
+                            <p class="RC_subStopName">TCS Ion Digital (IDZ 1 & 2) - Moula Ali </p>
+                        </div>
+
+                    </div>
+
+                    <div class="routeCourseItem centerRow spBetween">
+
+                        <div class="graphic centerCol">
+                            <span class="line topLine"></span>
+                            <span class="circle centerCol"></span>
+                            <span class="line BottomLine"></span>
+                        </div>
+
+                        <div class="text">
+                            <p class="RC_stopName">HB Colony</p>
+                            <p class="RC_subStopName">Play Ground || First Phase</p>
+                        </div>
+
+                    </div>
+
+                    <div class="routeCourseItem centerRow spBetween last">
+
+                        <div class="graphic centerCol">
+                            <span class="line topLine"></span>
+                            <span class="circle centerCol"></span>
+                            <span class="line BottomLine"></span>
+                        </div>
+
+                        <div class="text">
+                            <p class="RC_stopName">ECIL X Roads</p>
+                            <p class="RC_subStopName">Bus Station</p>
+                        </div>
+
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="reverseRouteBtn centerCol boxShadow br50pr centerTxt" id="reverseRouteBtn"
+                onclick="reverseRouteCourse()">
+                <p id="reverseBtnTxt">Down Trip Route</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BUS STOPS OUTPUT -->
+    <section class="contentPage close" id="busStopOutput">
+        <div class="content">
+
+            <div class="topLeftIcon centerCol br10px boxShadow" onclick="goBack()">
+                <img src="images/svg/back.svg" alt="BackIcon">
+            </div>
+
+            <div class="searchBarsContainer br10px boxShadow">
+                <div class="inputHolder centerRow spBetween">
+                    <img src="images/svg/search.svg" alt="SearchIcon">
+                    <input type="text" id="busStopsInput" placeholder="Search Routes at Tarnaka">
+                    <img src="images/svg/cancel.svg" alt="SearchIcon">
+                </div>
+            </div>
+
+            <div class="outputContent" id="busStopsOutputContent">
+
+                <div class="outputDescription br10px centerRow">
+                    <div class="icon centerRow">
+                        <svg viewBox="0 0 64 64" class="icon location-icon">
+                            <path
+                                d="M32,0C18.746,0,8,10.746,8,24c0,5.219,1.711,10.008,4.555,13.93c0.051,0.094,0.059,0.199,0.117,0.289l16,24 C29.414,63.332,30.664,64,32,64s2.586-0.668,3.328-1.781l16-24c0.059-0.09,0.066-0.195,0.117-0.289C54.289,34.008,56,29.219,56,24 C56,10.746,45.254,0,32,0z M32,32c-4.418,0-8-3.582-8-8s3.582-8,8-8s8,3.582,8,8S36.418,32,32,32z">
+                            </path>
+                        </svg>
+                    </div>
+
+                    <div class="text">
+                        <p id="busStopDescription"><strong>Tarnaka</strong> is an important junction in Hyderabad along
+                            the inner Ring Road. It
+                            provides
+                            connectivity to various Destinations like ECIL, Uppal, Vidya Nagar and Secunderabad.</p>
+                    </div>
+                </div>
+
+                <div id="busStopNodesContainer">
+                    <div class="BusStopInfoItem centerCol br10px blue">
+
+                        <div class="headLine centerRow">
+                            <div class="icon centerRow">
+                                <div class="svgContainer centerRow boxShadow">
+                                    <svg fill="#000000" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M12 0C5.4375 0 3 2.167969 3 8L3 41C3 42.359375 3.398438 43.339844 4 44.0625L4 47C4 48.652344 5.347656 50 7 50L11 50C12.652344 50 14 48.652344 14 47L14 46L36 46L36 47C36 48.652344 37.347656 50 39 50L43 50C44.652344 50 46 48.652344 46 47L46 44.0625C46.601563 43.339844 47 42.359375 47 41L47 9C47 4.644531 46.460938 0 40 0 Z M 15 4L36 4C36.554688 4 37 4.449219 37 5L37 7C37 7.550781 36.554688 8 36 8L15 8C14.449219 8 14 7.550781 14 7L14 5C14 4.449219 14.449219 4 15 4 Z M 11 11L39 11C41 11 42 12 42 14L42 26C42 28 40.046875 28.9375 39 28.9375L11 29C9 29 8 28 8 26L8 14C8 12 9 11 11 11 Z M 2 12C0.898438 12 0 12.898438 0 14L0 22C0 23.101563 0.898438 24 2 24 Z M 48 12L48 24C49.105469 24 50 23.101563 50 22L50 14C50 12.898438 49.105469 12 48 12 Z M 11.5 34C13.433594 34 15 35.566406 15 37.5C15 39.433594 13.433594 41 11.5 41C9.566406 41 8 39.433594 8 37.5C8 35.566406 9.566406 34 11.5 34 Z M 38.5 34C40.433594 34 42 35.566406 42 37.5C42 39.433594 40.433594 41 38.5 41C36.566406 41 35 39.433594 35 37.5C35 35.566406 36.566406 34 38.5 34Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="text">
+                                <p class="busStopTowards">Opp. Aradhana Theater</p>
+                                <p class="busStopLandMark">Towards Habsiguda, Nacharam, Cherlapally, Uppal etc.,</p>
+                            </div>
+
+                        </div>
+
+                        <hr>
+                        <div class="busStopRoutes centerRow">
+                            <li>3</li>
+                            <li>3K</li>
+                            <li>3D</li>
+                            <li>17H</li>
+                            <li>17HC</li>
+                            <li>17RH</li>
+                            <li>17D</li>
+                            <li>17DH</li>
+                            <li>136H</li>
+                            <li>241T</li>
+                            <li>242</li>
+                            <li>242B</li>
+                            <li>242RG</li>
+                        </div>
+
+                    </div>
+
+                    <div class="BusStopInfoItem centerCol br10px green">
+
+                        <div class="headLine centerRow">
+                            <div class="icon centerRow">
+                                <div class="svgContainer centerRow boxShadow">
+                                    <svg fill="#000000" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M12 0C5.4375 0 3 2.167969 3 8L3 41C3 42.359375 3.398438 43.339844 4 44.0625L4 47C4 48.652344 5.347656 50 7 50L11 50C12.652344 50 14 48.652344 14 47L14 46L36 46L36 47C36 48.652344 37.347656 50 39 50L43 50C44.652344 50 46 48.652344 46 47L46 44.0625C46.601563 43.339844 47 42.359375 47 41L47 9C47 4.644531 46.460938 0 40 0 Z M 15 4L36 4C36.554688 4 37 4.449219 37 5L37 7C37 7.550781 36.554688 8 36 8L15 8C14.449219 8 14 7.550781 14 7L14 5C14 4.449219 14.449219 4 15 4 Z M 11 11L39 11C41 11 42 12 42 14L42 26C42 28 40.046875 28.9375 39 28.9375L11 29C9 29 8 28 8 26L8 14C8 12 9 11 11 11 Z M 2 12C0.898438 12 0 12.898438 0 14L0 22C0 23.101563 0.898438 24 2 24 Z M 48 12L48 24C49.105469 24 50 23.101563 50 22L50 14C50 12.898438 49.105469 12 48 12 Z M 11.5 34C13.433594 34 15 35.566406 15 37.5C15 39.433594 13.433594 41 11.5 41C9.566406 41 8 39.433594 8 37.5C8 35.566406 9.566406 34 11.5 34 Z M 38.5 34C40.433594 34 42 35.566406 42 37.5C42 39.433594 40.433594 41 38.5 41C36.566406 41 35 39.433594 35 37.5C35 35.566406 36.566406 34 38.5 34Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <p class="busStopTowards">Near Aradhana Theater</p>
+                                <p class="busStopLandMark">Towards Mettuguda, Sec-Bad, Paradise, Begumpet etc.,</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="busStopRoutes centerRow">
+                            <li>3</li>
+                            <li>3K</li>
+                            <li>3D</li>
+                            <li>17H</li>
+                            <li>17HC</li>
+                            <li>17RH</li>
+                            <li>17D</li>
+                            <li>17DH</li>
+                            <li>136H</li>
+                            <li>241T</li>
+                            <li>242</li>
+                            <li>242B</li>
+                            <li>242RG</li>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FROM - TO OUTPUT -->
+    <section class="contentPage close" id="fromToOutput">
+        <div class="content">
+
+            <div class="topLeftIcon centerCol br10px boxShadow" onclick="goBack()">
+                <img src="images/svg/back.svg" alt="BackIcon">
+            </div>
+
+            <div class="searchBarsContainer br10px boxShadow">
+                <div class="inputHolder centerRow spBetween">
+                    <img src="images/svg/search.svg" alt="SearchIcon">
+                    <input type="text" id="busStopsInput" placeholder="Search Routes No.">
+                    <img src="images/svg/cancel.svg" alt="SearchIcon">
+                </div>
+            </div>
+
+            <div class="outputContent">
+
+                <div class="outputDescription br10px centerRow hide">
+                    <div class="icon centerRow">
+                        <svg viewBox="0 0 24 24" class="icon flat-line">
+                            <polyline points="7 5 4 8 7 11" class="arrow-part" />
+                            <polyline points="17 19 20 16 17 13" class="arrow-part" />
+                            <path d="M4,8H20m0,8H4" class="arrow-part" />
+                        </svg>
+                    </div>
+
+                    <div class="text">
+                        <p id="fromToDesc">There are many bus services operated between Lalapet and Tarnaka.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="BusStopInfoItem centerCol br10px green">
+
+                    <div class="headLine centerRow">
+                        <div class="icon centerRow">
+                            <div class="svgContainer centerRow boxShadow">
+                                <svg fill="#000000" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M12 0C5.4375 0 3 2.167969 3 8L3 41C3 42.359375 3.398438 43.339844 4 44.0625L4 47C4 48.652344 5.347656 50 7 50L11 50C12.652344 50 14 48.652344 14 47L14 46L36 46L36 47C36 48.652344 37.347656 50 39 50L43 50C44.652344 50 46 48.652344 46 47L46 44.0625C46.601563 43.339844 47 42.359375 47 41L47 9C47 4.644531 46.460938 0 40 0 Z M 15 4L36 4C36.554688 4 37 4.449219 37 5L37 7C37 7.550781 36.554688 8 36 8L15 8C14.449219 8 14 7.550781 14 7L14 5C14 4.449219 14.449219 4 15 4 Z M 11 11L39 11C41 11 42 12 42 14L42 26C42 28 40.046875 28.9375 39 28.9375L11 29C9 29 8 28 8 26L8 14C8 12 9 11 11 11 Z M 2 12C0.898438 12 0 12.898438 0 14L0 22C0 23.101563 0.898438 24 2 24 Z M 48 12L48 24C49.105469 24 50 23.101563 50 22L50 14C50 12.898438 49.105469 12 48 12 Z M 11.5 34C13.433594 34 15 35.566406 15 37.5C15 39.433594 13.433594 41 11.5 41C9.566406 41 8 39.433594 8 37.5C8 35.566406 9.566406 34 11.5 34 Z M 38.5 34C40.433594 34 42 35.566406 42 37.5C42 39.433594 40.433594 41 38.5 41C36.566406 41 35 39.433594 35 37.5C35 35.566406 36.566406 34 38.5 34Z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="text">
+                            <p class="busStopTowards">Regular Routes</p>
+                            <p class="busStopLandMark">Available throughout the day, no long waits</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="busStopRoutes centerRow" id="fromToRegRoutesContainer">
+                        <li>3</li>
+                        <li>3K</li>
+                        <li>3D</li>
+                        <li>17H</li>
+                        <li>17HC</li>
+                        <li>17RH</li>
+                        <li>17D</li>
+                        <li>17DH</li>
+                        <li>136H</li>
+                        <li>241T</li>
+                        <li>242</li>
+                        <li>242B</li>
+                        <li>242RG</li>
+                    </div>
+
+                </div>
+
+
+                <div class="BusStopInfoItem centerCol br10px orange" id="fromToRareRoutesItem">
+
+                    <div class="headLine centerRow">
+                        <div class="icon centerRow">
+                            <div class="svgContainer centerRow boxShadow">
+                                <svg fill="#000000" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M12 0C5.4375 0 3 2.167969 3 8L3 41C3 42.359375 3.398438 43.339844 4 44.0625L4 47C4 48.652344 5.347656 50 7 50L11 50C12.652344 50 14 48.652344 14 47L14 46L36 46L36 47C36 48.652344 37.347656 50 39 50L43 50C44.652344 50 46 48.652344 46 47L46 44.0625C46.601563 43.339844 47 42.359375 47 41L47 9C47 4.644531 46.460938 0 40 0 Z M 15 4L36 4C36.554688 4 37 4.449219 37 5L37 7C37 7.550781 36.554688 8 36 8L15 8C14.449219 8 14 7.550781 14 7L14 5C14 4.449219 14.449219 4 15 4 Z M 11 11L39 11C41 11 42 12 42 14L42 26C42 28 40.046875 28.9375 39 28.9375L11 29C9 29 8 28 8 26L8 14C8 12 9 11 11 11 Z M 2 12C0.898438 12 0 12.898438 0 14L0 22C0 23.101563 0.898438 24 2 24 Z M 48 12L48 24C49.105469 24 50 23.101563 50 22L50 14C50 12.898438 49.105469 12 48 12 Z M 11.5 34C13.433594 34 15 35.566406 15 37.5C15 39.433594 13.433594 41 11.5 41C9.566406 41 8 39.433594 8 37.5C8 35.566406 9.566406 34 11.5 34 Z M 38.5 34C40.433594 34 42 35.566406 42 37.5C42 39.433594 40.433594 41 38.5 41C36.566406 41 35 39.433594 35 37.5C35 35.566406 36.566406 34 38.5 34Z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="text">
+                            <p class="busStopTowards">Limited/Special Routes</p>
+                            <p class="busStopLandMark">Limited trips, may run only at specific times or occasions</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="busStopRoutes centerRow" id="fromToRareRoutesContainer">
+                        <li>3KN</li>
+                        <li>3DN</li>
+                        <li>6NW</li>
+                        <li>17HN</li>
+                        <li>250C</li>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FARE CHART OUTPUT -->
+    <section class="contentPage close" id="fareChart">
+        <div class="content">
+
+            <div class="topLeftIcon centerCol br10px boxShadow" onclick="goBack()">
+                <img src="images/svg/back.svg" alt="BackIcon">
+            </div>
+
+            <div class="searchBarsContainer br10px boxShadow">
+                <div class="inputHolder centerRow spBetween">
+                    <img src="images/svg/search.svg" alt="SearchIcon">
+                    <input type="text" id="busStopsInput" placeholder="Search Routes No.">
+                    <img src="images/svg/cancel.svg" alt="SearchIcon">
+                </div>
+            </div>
+
+            <div class="outputContent">
+
+                <div class="BusStopInfoItem centerCol br10px blue hide">
+
+                    <div class="headLine centerRow">
+                        <div class="icon centerRow">
+                            <div class="svgContainer centerRow boxShadow">
+                                <svg fill="#000000" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M12 0C5.4375 0 3 2.167969 3 8L3 41C3 42.359375 3.398438 43.339844 4 44.0625L4 47C4 48.652344 5.347656 50 7 50L11 50C12.652344 50 14 48.652344 14 47L14 46L36 46L36 47C36 48.652344 37.347656 50 39 50L43 50C44.652344 50 46 48.652344 46 47L46 44.0625C46.601563 43.339844 47 42.359375 47 41L47 9C47 4.644531 46.460938 0 40 0 Z M 15 4L36 4C36.554688 4 37 4.449219 37 5L37 7C37 7.550781 36.554688 8 36 8L15 8C14.449219 8 14 7.550781 14 7L14 5C14 4.449219 14.449219 4 15 4 Z M 11 11L39 11C41 11 42 12 42 14L42 26C42 28 40.046875 28.9375 39 28.9375L11 29C9 29 8 28 8 26L8 14C8 12 9 11 11 11 Z M 2 12C0.898438 12 0 12.898438 0 14L0 22C0 23.101563 0.898438 24 2 24 Z M 48 12L48 24C49.105469 24 50 23.101563 50 22L50 14C50 12.898438 49.105469 12 48 12 Z M 11.5 34C13.433594 34 15 35.566406 15 37.5C15 39.433594 13.433594 41 11.5 41C9.566406 41 8 39.433594 8 37.5C8 35.566406 9.566406 34 11.5 34 Z M 38.5 34C40.433594 34 42 35.566406 42 37.5C42 39.433594 40.433594 41 38.5 41C36.566406 41 35 39.433594 35 37.5C35 35.566406 36.566406 34 38.5 34Z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="text">
+                            <p class="busStopTowards">via Moula Ali Kaman</p>
+                            <p class="busStopLandMark">Buses like 3, 15 etc.,</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="fareTable centerCol">
+                        <li class="fareItem centerRow orange br10px">
+                            <span class="busType">City Ordinary</span>
+                            <span class="busfare">20/-</span>
+                        </li>
+
+                        <li class="fareItem centerRow blue br10px">
+                            <span class="busType">Metro Express</span>
+                            <span class="busfare">25/-</span>
+                        </li>
+
+                        <li class="fareItem centerRow green br10px">
+                            <span class="busType">Metro Deluxe</span>
+                            <span class="busfare">30/-</span>
+                        </li>
+                    </div>
+                </div>
+
+
+                <div class="BusStopInfoItem centerCol br10px blue hide">
+
+                    <div class="headLine centerRow">
+                        <div class="icon centerRow">
+                            <div class="svgContainer centerRow boxShadow">
+                                <svg fill="#000000" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M12 0C5.4375 0 3 2.167969 3 8L3 41C3 42.359375 3.398438 43.339844 4 44.0625L4 47C4 48.652344 5.347656 50 7 50L11 50C12.652344 50 14 48.652344 14 47L14 46L36 46L36 47C36 48.652344 37.347656 50 39 50L43 50C44.652344 50 46 48.652344 46 47L46 44.0625C46.601563 43.339844 47 42.359375 47 41L47 9C47 4.644531 46.460938 0 40 0 Z M 15 4L36 4C36.554688 4 37 4.449219 37 5L37 7C37 7.550781 36.554688 8 36 8L15 8C14.449219 8 14 7.550781 14 7L14 5C14 4.449219 14.449219 4 15 4 Z M 11 11L39 11C41 11 42 12 42 14L42 26C42 28 40.046875 28.9375 39 28.9375L11 29C9 29 8 28 8 26L8 14C8 12 9 11 11 11 Z M 2 12C0.898438 12 0 12.898438 0 14L0 22C0 23.101563 0.898438 24 2 24 Z M 48 12L48 24C49.105469 24 50 23.101563 50 22L50 14C50 12.898438 49.105469 12 48 12 Z M 11.5 34C13.433594 34 15 35.566406 15 37.5C15 39.433594 13.433594 41 11.5 41C9.566406 41 8 39.433594 8 37.5C8 35.566406 9.566406 34 11.5 34 Z M 38.5 34C40.433594 34 42 35.566406 42 37.5C42 39.433594 40.433594 41 38.5 41C36.566406 41 35 39.433594 35 37.5C35 35.566406 36.566406 34 38.5 34Z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="text">
+                            <p class="busStopTowards">Via HB Colony</p>
+                            <p class="busStopLandMark">Buses routes like 3K, 3KN, 15H, 17H, 242 etc.,</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="fareTable centerCol">
+                        <li class="fareItem centerRow orange br10px">
+                            <span class="busType">City Ordinary</span>
+                            <span class="busfare">20/-</span>
+                        </li>
+
+                        <li class="fareItem centerRow blue br10px">
+                            <span class="busType">Metro Express</span>
+                            <span class="busfare">25/-</span>
+                        </li>
+
+                        <li class="fareItem centerRow green br10px">
+                            <span class="busType">Metro Deluxe</span>
+                            <span class="busfare">30/-</span>
+                        </li>
+                    </div>
+
+                </div>
+
+                <div class="BusStopInfoItem centerCol br10px blue" id="singlefareItem">
+
+                    <div class="headLine centerRow">
+                        <div class="icon centerRow">
+                            <div class="svgContainer centerRow boxShadow">
+                                <svg fill="#000000" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M12 0C5.4375 0 3 2.167969 3 8L3 41C3 42.359375 3.398438 43.339844 4 44.0625L4 47C4 48.652344 5.347656 50 7 50L11 50C12.652344 50 14 48.652344 14 47L14 46L36 46L36 47C36 48.652344 37.347656 50 39 50L43 50C44.652344 50 46 48.652344 46 47L46 44.0625C46.601563 43.339844 47 42.359375 47 41L47 9C47 4.644531 46.460938 0 40 0 Z M 15 4L36 4C36.554688 4 37 4.449219 37 5L37 7C37 7.550781 36.554688 8 36 8L15 8C14.449219 8 14 7.550781 14 7L14 5C14 4.449219 14.449219 4 15 4 Z M 11 11L39 11C41 11 42 12 42 14L42 26C42 28 40.046875 28.9375 39 28.9375L11 29C9 29 8 28 8 26L8 14C8 12 9 11 11 11 Z M 2 12C0.898438 12 0 12.898438 0 14L0 22C0 23.101563 0.898438 24 2 24 Z M 48 12L48 24C49.105469 24 50 23.101563 50 22L50 14C50 12.898438 49.105469 12 48 12 Z M 11.5 34C13.433594 34 15 35.566406 15 37.5C15 39.433594 13.433594 41 11.5 41C9.566406 41 8 39.433594 8 37.5C8 35.566406 9.566406 34 11.5 34 Z M 38.5 34C40.433594 34 42 35.566406 42 37.5C42 39.433594 40.433594 41 38.5 41C36.566406 41 35 39.433594 35 37.5C35 35.566406 36.566406 34 38.5 34Z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="text">
+                            <p class="busStopTowards">Ameerpet - Kondapur</p>
+                            <p class="busStopLandMark hide">Buses routes like 3K, 3KN, 15H, 17H, 242 etc.,</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="fareTable centerCol">
+                        <li class="fareItem centerRow orange br10px">
+                            <span class="busType">City Ordinary</span>
+                            <span class="busfare">20/-</span>
+                        </li>
+
+                        <li class="fareItem centerRow blue br10px">
+                            <span class="busType">Metro Express</span>
+                            <span class="busfare">25/-</span>
+                        </li>
+
+                        <li class="fareItem centerRow green br10px">
+                            <span class="busType">Metro Deluxe</span>
+                            <span class="busfare">30/-</span>
+                        </li>
+
+                        <li class="fareItem centerRow orange br10px">
+                            <span class="busType">E-City Ordinary</span>
+                            <span class="busfare">30/-</span>
+                        </li>
+
+                        <li class="fareItem centerRow blue br10px">
+                            <span class="busType">E-Metro Express</span>
+                            <span class="busfare">30/-</span>
+                        </li>
+
+                        <li class="fareItem centerRow green br10px">
+                            <span class="busType">E-Metro Luxury (AC)</span>
+                            <span class="busfare">30/-</span>
+                        </li>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SIDE MENU  -->
+    <section class="sideMenu centerRow close" id="sideMenu">
+        <div class="sideMenuContent boxShadow">
+
+        </div>
+        <div class="menuOutside" onclick="closeMenu()">
+
+        </div>
+    </section>
+
+
+    <script src="RawMap.js"></script>
+    <script src="RawMapLib.js"></script>
+    <script src="RT_Helpers.js"></script>
+    <script src="random.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

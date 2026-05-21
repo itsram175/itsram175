@@ -1,0 +1,684 @@
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+    :root {
+        --backgroundColor: #FEFEFE;
+        --darkBlue: #142F73;
+        --primaryBlue: #1E64F4;
+        --blueShade: #EDF3FE;
+
+        --greenShade: #ecf9ec;
+        --darkGreen: #04792A;
+
+        --orangeShade: #FEF3E8;
+        --darkOrange: #FD6B0D;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        scroll-behavior: smooth;
+        user-select: none;
+    }
+
+    body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background-color: var(--backgroundColor);
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    section {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    section.background .topImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    section.background .bottomImage {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    section.background div img {
+        width: 100%;
+    }
+
+
+    section.contentPage {
+        width: 100%;
+        height: 100%;
+        transition-duration: 0.2s;
+    }
+
+    section.contentPage .content {
+        width: 95%;
+        margin: auto;
+        height: 100%;
+    }
+
+    .topLeftIcon {
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        margin-top: 30px;
+    }
+
+    .topLeftIcon img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .searchBarsContainer {
+        width: 100%;
+        background-color: white;
+        margin-top: 30px;
+    }
+
+    .searchBarsContainer hr {
+        width: 75%;
+        margin: auto;
+        height: 1px;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .searchBarsContainer .inputHolder {
+        width: 95%;
+        height: 40px;
+        margin: auto;
+        padding: 5px 0px;
+    }
+
+    .searchBarsContainer .inputHolder input {
+        width: calc(100% - 70px);
+        border: none;
+        height: 100%;
+    }
+
+    .searchBarsContainer .inputHolder img {
+        width: 30px;
+    }
+
+    .suggessionsList {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        white-space: nowrap;
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .suggessionsList li {
+        flex-shrink: 0;
+        padding: 8px 16px;
+        border-radius: 10px;
+        font-size: 14px;
+        background-color: var(--blueShade);
+    }
+
+    .buttonContainer {
+        width: 100%;
+        height: 35px;
+        margin-top: 15px;
+    }
+
+    .buttonContainer button {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        border: none;
+        outline: none;
+        background-color: var(--primaryBlue);
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .homeOutputAttractions {
+        width: 100%;
+        /* For Single Input Sections */
+        height: calc(100% - 240px);
+        margin-top: 20px;
+    }
+
+    .homeOutputAttractions .attractionItem {
+        width: 100%;
+        padding: 10px 0px;
+        margin-top: 20px;
+    }
+
+    .attractionItem .headline {
+        width: 90%;
+        margin: auto;
+    }
+
+    .attractionItem .headline .image {
+        width: 20px;
+        height: 20px;
+        padding: 5px;
+        border-radius: 50%;
+    }
+
+    .attractionItem.green .headline .image {
+        background-color: var(--darkGreen);
+    }
+
+    .attractionItem.blue .headline .image {
+        background-color: var(--darkBlue);
+    }
+
+    .attractionItem .headline .image img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .attractionItem .headline h4 {
+        width: calc(100% - 40px);
+    }
+
+    .attractionItem .attactionContent {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .attractionItem .attactionContent ul {
+        width: 95%;
+        margin-top: 10px;
+    }
+
+    .attractionItem .attactionContent ul li {
+        padding: 7px 0px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .attractionItem .attactionContent ul.child5 li {
+        width: 18%;
+    }
+
+    .attractionItem .attactionContent ul.child4 li {
+        width: 23%;
+    }
+
+    .attractionItem .attactionContent ul.child3 li {
+        width: 31%;
+    }
+
+    .attractionItem .attactionContent ul.child2 li {
+        width: 48%;
+    }
+
+    .attractionItem .attactionContent ul.child1 li {
+        width: 100%;
+    }
+
+    .attractionItem.blue .attactionContent ul li {
+        background-color: var(--blueShade);
+    }
+
+    .attractionItem.green .attactionContent ul li {
+        background-color: var(--greenShade);
+    }
+
+    .navBar {
+        width: 95%;
+        padding: 5px 0px;
+        padding-top: 10px;
+        position: absolute;
+        bottom: 10px;
+    }
+
+    .navBar li {
+        opacity: 0.5;
+        width: 25%;
+        transition-duration: 0.2s;
+    }
+
+    .navBar li.active {
+        opacity: 1;
+        color: var(--primaryBlue);
+        font-weight: bold;
+    }
+
+    .navBar li.active .navIcon svg {
+        fill: var(--primaryBlue);
+    }
+
+    .navBar li .navIcon svg {
+        width: 20px;
+        height: 20px;
+        fill: black;
+    }
+
+    .icon .arrow-part {
+        fill: none;
+        stroke: black;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .outputDescription .icon .arrow-part {
+        stroke: var(--primaryBlue);
+    }
+
+    .navBar li.active .navIcon svg.icon .arrow-part {
+        stroke: var(--primaryBlue);
+    }
+
+    .navBar li .navText {
+        font-size: 12px;
+    }
+
+    .sideMenu {
+        background-color: rgba(0, 0, 0, 0.2);
+        transition-duration: 0.2s;
+    }
+
+    .sideMenu .sideMenuContent {
+        height: 100%;
+        width: 85%;
+        background-color: var(--backgroundColor);
+    }
+
+    .sideMenu .menuOutside {
+        height: 100%;
+        width: 15%;
+    }
+
+    .outputContent {
+        width: 100%;
+        height: 62%;
+        overflow: auto;
+        /* overflow-x: hidden; */
+    }
+
+    .outputDescription {
+        width: calc(100% - 4px);
+        margin-top: 15px;
+        border: 2px solid var(--blueShade);
+        /* background-color: var(--blueShade); */
+    }
+
+    .outputDescription p {
+        font-size: 12px;
+        padding: 5px 0px;
+        text-align: justify;
+        width: 95%;
+        margin: auto;
+    }
+
+    .outputDescription .icon {
+        width: 25%;
+    }
+
+    .outputDescription .icon svg {
+        width: 45px;
+        height: 45px;
+        border: 2px solid var(--blueShade);
+        padding: 10px;
+        border-radius: 50%;
+        fill: var(--primaryBlue);
+    }
+
+    .outputDescription .text {
+        width: 75%;
+        letter-spacing: 0.2px;
+    }
+
+    .routeCourseContainer {
+        width: 100%;
+    }
+
+    .routeCourseItem {
+        width: 100%;
+    }
+
+    .routeCourseItem .graphic {
+        width: 50px;
+        height: 100%;
+    }
+
+    .routeCourseItem .graphic .circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: var(--orangeShade);
+        border: 2px solid var(--darkOrange);
+        position: relative;
+        margin-top: -1px;
+    }
+
+    .routeCourseItem .graphic .line {
+        width: 5px;
+        height: 15px;
+        background-color: black;
+        margin-top: -1px;
+    }
+
+    .routeCourseItem .text {
+        width: calc(100% - 60px);
+    }
+
+    .routeCourseItem .text p.RC_stopName {
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .routeCourseItem .text p.RC_subStopName {
+        font-size: 10px;
+        opacity: 0.7;
+        margin-top: 1px;
+    }
+
+    .routeCourseItem.first .graphic .topLine {
+        /* display: none; */
+        visibility: hidden;
+    }
+
+
+    .routeCourseItem.last .graphic .BottomLine {
+        /* display: none; */
+        visibility: hidden;
+    }
+
+    .routeNotAdded {
+        width: calc(100% - 4px);
+        margin-top: 15px;
+        padding: 10px 0px;
+        border: 2px solid var(--orangeShade);
+    }
+
+    .routeNotAdded p {
+        text-align: center;
+        font-size: 14px;
+        opacity: 0.5;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+    }
+
+    .reverseRouteBtn {
+        position: absolute;
+        bottom: 40px;
+        right: 20px;
+        height: 100px;
+        width: 100px;
+        background-color: var(--primaryBlue);
+        color: white;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    #busStopNodesContainer {
+        width: 100%;
+    }
+
+    .BusStopInfoItem {
+        width: calc(100% - 4px);
+        padding: 5px 0px;
+        margin-top: 20px;
+        padding-bottom: 10px;
+    }
+
+    .BusStopInfoItem.green {
+        border: 2px solid var(--greenShade);
+    }
+
+    .BusStopInfoItem.blue {
+        border: 2px solid var(--blueShade);
+    }
+
+    .BusStopInfoItem.orange {
+        border: 2px solid var(--orangeShade);
+    }
+
+    .BusStopInfoItem .headLine {
+        width: 100%;
+    }
+
+    .BusStopInfoItem .headLine .icon {
+        width: 25%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .BusStopInfoItem .headLine .icon .svgContainer {
+        padding: 10px;
+        border-radius: 50%;
+        border: 3px solid white;
+    }
+
+    .BusStopInfoItem.green .headLine .icon .svgContainer {
+        background: linear-gradient(135deg, #4ade80, #16a34a, #15803d);
+    }
+
+    .BusStopInfoItem.blue .headLine .icon .svgContainer {
+        background: linear-gradient(135deg, #60a5fa, #2563eb, #1e3a8a);
+    }
+
+    .BusStopInfoItem.orange .headLine .icon .svgContainer {
+        background: linear-gradient(135deg, #FDBA74, #FD6B0D, #C2410C);
+    }
+
+
+    .BusStopInfoItem .headLine .icon .svgContainer svg {
+        height: 30px;
+        width: 30px;
+        fill: white;
+    }
+
+    .BusStopInfoItem .headLine .text {
+        width: 75%;
+    }
+
+    .BusStopInfoItem .headLine .text .busStopTowards {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .BusStopInfoItem.green .headLine .text .busStopTowards {
+        color: var(--darkGreen);
+    }
+
+    .BusStopInfoItem.blue .headLine .text .busStopTowards {
+        color: var(--darkBlue);
+    }
+
+    .BusStopInfoItem.orange .headLine .text .busStopTowards {
+        color: var(--darkOrange);
+    }
+
+    .BusStopInfoItem .headLine .text .busStopLandMark {
+        font-size: 10px;
+    }
+
+    .BusStopInfoItem hr {
+        width: 95%;
+        margin-top: 5px;
+        height: 2px;
+        border: none;
+    }
+
+    .BusStopInfoItem.green hr {
+        background-color: var(--darkGreen);
+    }
+
+    .BusStopInfoItem.blue hr {
+        background-color: var(--darkBlue);
+    }
+
+    .BusStopInfoItem.orange hr {
+        background-color: var(--darkOrange);
+    }
+
+    .BusStopInfoItem .busStopRoutes {
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 95%;
+        margin: auto;
+        margin-top: 10px;
+    }
+
+    .BusStopInfoItem .busStopRoutes li {
+        padding: 5px 10px;
+        border-radius: 10px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        font-size: 14px;
+    }
+
+    .BusStopInfoItem.green .busStopRoutes li {
+        background-color: var(--greenShade);
+        color: var(--darkGreen);
+    }
+
+    .BusStopInfoItem.blue .busStopRoutes li {
+        background-color: var(--blueShade);
+        color: var(--darkBlue);
+    }
+
+    .BusStopInfoItem.orange .busStopRoutes li {
+        background-color: var(--orangeShade);
+        color: var(--darkOrange);
+    }
+
+
+    .fareTable {
+        width: 90%;
+    }
+
+    .fareTable .fareItem {
+        padding: 5px;
+        font-size: 14px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .fareTable .fareItem.orange {
+        background-color: var(--orangeShade);
+    }
+
+    .fareTable .fareItem.blue {
+        background-color: var(--blueShade);
+    }
+
+    .fareTable .fareItem.green {
+        background-color: var(--greenShade);
+    }
+
+    .fareTable .fareItem .busType {
+        width: 50%;
+    }
+
+    .fareTable .fareItem .busfare {
+        width: 50%;
+        text-align: right;
+    }
+
+
+
+
+
+
+    .centerRow {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .centerCol {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .spBetween {
+        justify-content: space-between;
+    }
+
+    .spAround {
+        justify-content: space-around;
+    }
+
+    .spEvenly {
+        justify-content: space-evenly;
+    }
+
+    .br10px {
+        border-radius: 10px;
+    }
+
+    .br50pr {
+        border-radius: 50%;
+    }
+
+    .centerTxt {
+        text-align: center;
+    }
+
+    .justifyTxt {
+        text-align: justify;
+    }
+
+    .boxShadow {
+        /* Initial */
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+
+
+        /* Super Soft */
+        box-shadow:
+            0 1px 3px rgba(0, 0, 0, 0.05),
+            0 6px 12px rgba(0, 0, 0, 0.06);
+
+
+        /* Modern */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+        /* Basic */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+
+        /* Smooth */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+        /* Premium */
+        box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.05),
+            0 6px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .close {
+        margin-left: -1000px;
+    }
+
+    .invisible {
+        visibility: hidden;
+    }
